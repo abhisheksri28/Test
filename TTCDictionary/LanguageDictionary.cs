@@ -34,7 +34,11 @@ namespace TTCDictionary
 
         public bool Check(string language, string word)
         {
-            throw new NotImplementedException();
+            if (list.Any(i => i.Key == language && i.Value == word))
+            {
+                return true;
+            }
+            return false;
         }
 
         public IEnumerable<string> Search(string word)

@@ -97,5 +97,35 @@ namespace TTCDictionary.UnitTests
             Assert.IsFalse(result.Contains("hi"));
         }
         #endregion
+
+        #region Test cases for checking value in dictionary
+        [Test]
+        public void When_checking_a_word_which_does_not_exist_should_return_false()
+        {
+            // Arrange.
+            var word = "test";
+
+            // Act.
+            var result = SUT.Check("English", word);
+
+            // Assert.
+            Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void When_checking_a_word_which_does_exist_should_return_true()
+        {
+            // Arrange.
+            var word = "test";
+            this.SUT.Add("English", word);
+
+            // Act.
+            var result = this.SUT.Check("English", word);
+
+            // Assert.
+            Assert.IsTrue(result);
+        }
+        #endregion
+
     }
 }
